@@ -46,7 +46,9 @@ public class LayoutButtonHandler implements EventHandler {
       }
       fw.close();
       controller.start(stage);
-      controller.loadFromExisting(controller.getCurrentFileName());
+      if (!controller.getCurrentFileName().equals("")) {
+        controller.loadFromExisting(controller.getCurrentFileName());
+      }
     } catch (IOException e) {
       throw new RuntimeException("couldn't write file");
     }
