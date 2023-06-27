@@ -10,6 +10,8 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
+import static cs3500.pa05.model.Direction.flip;
+
 /**
  * to handle switching bujo view layout
  */
@@ -40,11 +42,7 @@ public class LayoutButtonHandler implements EventHandler {
       BujoReader reader = new BujoReader();
       String layout = reader.read(new Scanner(new File(layoutMD)));
       FileWriter fw = new FileWriter(layoutMD);
-      if (layout.equalsIgnoreCase(Direction.HORIZONTAL.toString())) {
-        fw.write(Direction.VERTICAL.toString().toLowerCase());
-      } else {
-        fw.write(Direction.HORIZONTAL.toString().toLowerCase());
-      }
+      fw.write(flip(layout));
       fw.close();
       controller.start(stage);
       if (!controller.getCurrentFileName().equals("")) {
