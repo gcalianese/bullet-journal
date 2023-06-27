@@ -1,7 +1,6 @@
 package cs3500.pa05.controller;
 
 import cs3500.pa05.model.BujoReader;
-import cs3500.pa05.model.Direction;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
