@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 public class LayoutButtonHandler implements EventHandler {
   private final Stage stage;
   private final BujoController controller;
+  private static final String layoutMD = "src/main/resources/layout.md";
 
   /**
    * Creates a LayoutButtonHandler object
@@ -37,8 +38,8 @@ public class LayoutButtonHandler implements EventHandler {
   public void handle(Event event) {
     try {
       BujoReader reader = new BujoReader();
-      String layout = reader.read(new Scanner(new File("src/main/resources/layout.md")));
-      FileWriter fw = new FileWriter("src/main/resources/layout.md");
+      String layout = reader.read(new Scanner(new File(layoutMD)));
+      FileWriter fw = new FileWriter(layoutMD);
       if (layout.equalsIgnoreCase(Direction.HORIZONTAL.toString())) {
         fw.write(Direction.VERTICAL.toString().toLowerCase());
       } else {
